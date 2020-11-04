@@ -10,7 +10,11 @@ var sport = {
     { name: 'Kevin Durant', age: 28 }
   ],
   playerNames: function () {
-    // YOUR CODE HERE
+    let result = []
+    for(let el of this.players){
+      result.push(`${el.name} plays ${this.name}`)
+    }
+    return result
   }
 };
 

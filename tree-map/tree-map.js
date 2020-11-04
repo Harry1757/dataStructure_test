@@ -33,12 +33,21 @@ var Tree = function(value) {
   this.children = [];
 };
 
+
 Tree.prototype.addChild = function(child) {
-  // your code here
+  this.children.push(new Tree(child))
 };
 
 Tree.prototype.map = function(callback) {
-  // your code here
-};
+  let chaged = new Tree(callback(this.value))
+
+  if(this.children){
+  for(let i = 0; i < this.children.length ; i++)
+   chaged.children[i] = this.children[i].map(callback)
+  }
+  return chaged
+}
+
+
 
 module.exports = Tree;
